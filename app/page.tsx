@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -62,17 +63,18 @@ export default function Dashboard() {
         </nav>
       </header>
 
+
       <main className="p-6 max-w-4xl mx-auto">
         {activeTab === 'profile' && (
           <div className="flex flex-col items-center text-center">
-            <div className="w-28 h-28 relative mb-4">
-              {/* <Image
-                src="https://res.cloudinary.com/dwdd4ok3n/image/upload/v1716282591/pooja-profile.png"
+            <div className="w-28 h-28 rounded-full overflow-hidden mb-4">
+            <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLQUXqMrzrmkxd3QpxGL5bzgxELsztrL1AgQ&s"
+
                 alt="Pooja Sinha"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-full"
-              /> */}
+                className="w-full h-full object-cover"
+              />
+
             </div>
             <h2 className="text-2xl font-bold mt-4">{data.profile.name}</h2>
             <p className="text-sm text-gray-600">{data.profile.bio}</p>
