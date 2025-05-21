@@ -2,6 +2,9 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
+type TabKey = 'profile' | 'academics' | 'experience' | 'skills' | 'extras' ;
+
+
 const data = {
   profile: {
     name: 'Pooja Sinha',
@@ -34,10 +37,9 @@ const data = {
   }
 };
 
-type TabKey = 'profile' | 'academics' | 'experience' | 'skills' | 'extras';
 
 
-const tabIcons: Record<keyof tyepof data, string> =  {
+const tabIcons: Record<TabKey, string> =  {
   profile: '👤',
   academics: '🎓',
   experience: '💼',
@@ -48,14 +50,16 @@ const tabIcons: Record<keyof tyepof data, string> =  {
 
 
 export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState('profile');
+  const [activeTab, setActiveTab] = useState<TabKey>('profile');
+  const tabs: TabKey[] = ['profile', 'academics', 'experience', 'skills', 'extras'];
+
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-800 font-sans">
       <header className="bg-white shadow p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">Pooja's Dashboard</h1>
         <nav className="flex gap-4">
-          {(object.keys(data) as (keyof tyepof data)[]).map((tab) => (
+          {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
