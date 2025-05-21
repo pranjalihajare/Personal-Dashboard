@@ -34,13 +34,18 @@ const data = {
   }
 };
 
-const tabIcons = {
+type TabKey = 'profile' | 'academics' | 'experience' | 'skills' | 'extras';
+
+
+const tabIcons: Record<TabKey, string> =  {
   profile: '👤',
   academics: '🎓',
   experience: '💼',
   skills: '🛠️',
   extras: '✨'
 };
+const tabs: TabKey[] = ['profile', 'academics', 'experience', 'skills', 'extras'];
+
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('profile');
@@ -50,7 +55,7 @@ export default function Dashboard() {
       <header className="bg-white shadow p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">Pooja's Dashboard</h1>
         <nav className="flex gap-4">
-          {['profile', 'academics', 'experience', 'skills', 'extras'].map((tab) => (
+          {['profile', '', 'experience', 'skills', 'extras'].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -69,8 +74,7 @@ export default function Dashboard() {
           <div className="flex flex-col items-center text-center">
             <div className="w-28 h-28 rounded-full overflow-hidden mb-4">
             <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLQUXqMrzrmkxd3QpxGL5bzgxELsztrL1AgQ&s"
-
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLQUXqMrzrmkxd3QpxGL5bzgxELsztrL1AgQ&s"
                 alt="Pooja Sinha"
                 className="w-full h-full object-cover"
               />
