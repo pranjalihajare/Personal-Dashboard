@@ -37,13 +37,14 @@ const data = {
 type TabKey = 'profile' | 'academics' | 'experience' | 'skills' | 'extras';
 
 
-const tabIcons: Record<TabKey, string> =  {
+const tabIcons =  {
   profile: '👤',
   academics: '🎓',
   experience: '💼',
   skills: '🛠️',
   extras: '✨'
 };
+type TabKey = keyof tyepof tabIcons;
 const tabs: TabKey[] = ['profile', 'academics', 'experience', 'skills', 'extras'];
 
 
@@ -55,7 +56,7 @@ export default function Dashboard() {
       <header className="bg-white shadow p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">Pooja's Dashboard</h1>
         <nav className="flex gap-4">
-          {['profile', '', 'experience', 'skills', 'extras'].map((tab) => (
+          {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
